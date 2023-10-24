@@ -1,0 +1,20 @@
+<html>
+<head>
+    <script>
+        function fetchData() {
+            fetch('https://seusite.github.io/novo/data.json') // Substitua "seusite" e "data.json" pelo seu URL e nome de arquivo reais
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('distance').innerHTML = data.distance + ' cm';
+                })
+                .catch(error => console.error('Erro ao buscar dados do sensor: ', error));
+        }
+        setInterval(fetchData, 60000);
+        // Inicie a busca de dados imediatamente
+        fetchData();
+    </script>
+</head>
+<body>
+    <p>Distância do Sensor: <span id="distance"></span></p>
+</body>
+</html>
